@@ -1,0 +1,15 @@
+.P-list-main{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+.product-list-image{
+    height: 340px;
+}
+.product-list-image img{
+    height: 100%;
+}
+
+@media(max-width:418px){
+    .product-list-image{
+        height: 380px;
+    }
+}
