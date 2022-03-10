@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // images
 
 import keybord from '../../../images/productlistImages/keybord.jpg'
@@ -22,7 +23,9 @@ const ProductDetail = () => {
                 <h4>What is Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore in English dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh?</h4>
                 <div className='btns mt-5 mb-5'>
                     <button className='p-2 ps-4 pe-4 fw-bold rounded-pill '>Add to cart</button>
-                    <button className='ms-2 p-2 ps-4 pe-4 fw-bold rounded-pill'>Buy now</button>
+                    <Link to={'/cust-infor-g'}>
+                        <button className='ms-2 p-2 ps-4 pe-4 fw-bold rounded-pill'>Buy now</button>
+                    </Link>
                 </div>
             </div>
         </div>
