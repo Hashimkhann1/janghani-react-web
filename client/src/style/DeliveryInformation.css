@@ -1,0 +1,23 @@
+.input-container input:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #000;
+}
+.delivery-btn:hover{
+    background-color: #f0394b !important;
+    transition: 0.4s all ease-out;
+    transform: translateY(-8px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.form-select:focus{
+    box-shadow: none;
+}
+
+@media(max-width: 424px){
+    .delivery-product-image{
+        height: 200px;
+    }
+    .delivery-product-image img{
+        height: 100%;
+    }
+}

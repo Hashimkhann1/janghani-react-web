@@ -13,7 +13,7 @@ const ProductDetail = () => {
     <div className='container-lg'>
         <div className='row pt-5'>
             <div className='col-sm-12 col-md-12 col-lg-5'>
-                <div className='detail-main-image border'>
+                <div className='detail-main-image'>
                     <img src={keybord} alt='Product Detail' className='img-fluid'/>
                 </div>
             </div>
@@ -23,7 +23,7 @@ const ProductDetail = () => {
                 <h4>What is Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore in English dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh?</h4>
                 <div className='btns mt-5 mb-5'>
                     <button className='p-2 ps-4 pe-4 fw-bold rounded-pill '>Add to cart</button>
-                    <Link to={'/cust-infor-g'}>
+                    <Link to={'/deli-detail'}>
                         <button className='ms-2 p-2 ps-4 pe-4 fw-bold rounded-pill'>Buy now</button>
                     </Link>
                 </div>
