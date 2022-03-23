@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../../style/ProductMainList.css'
 import {Link} from 'react-router-dom'
 
 // images
 
 import keybord from '../../../images/productlistImages/keybord.jpg'
+import { productMainList } from '../../../services/Api'
 // import laptop from '../../../images/productlistImages/laptop.jpg'
+
 
 
 const addDots = (str , limit) => {
@@ -13,6 +15,19 @@ const addDots = (str , limit) => {
 }
 
 const ProductMainList = () => {
+
+    const [ProductListData , setProductListData] = useState([])
+
+
+    useEffect(() => {
+        const getproductMainListData = async () => {
+            let data = await productMainList()
+            console.log(data)
+        }
+        getproductMainListData()
+    } , [])
+
+
   return (
     <div className='container-lg'>
         <div className='row'>
