@@ -7,6 +7,7 @@ export const productMainList = async () => {
         const responce = await axios.get(`${url}/product/main/list`)
         
         return responce.data 
+        console.log(responce)
     } catch (error) {
         console.log('error while calling ProductMainList from services : ' , error)
     }

@@ -1,9 +1,9 @@
 import express from 'express'
-import { getProductMainList } from './controller/Controller.js'
+import { getDbProductData } from './controller/Controller.js'
 
 const router = express.Router()
 
-// router.get('/product/main/list' , getProductMainList)
+router.get('/product/main/list' , getDbProductData)
 
 
 export default router

@@ -23,6 +23,7 @@ const ProductMainList = () => {
         const getproductMainListData = async () => {
             let data = await productMainList()
             console.log(data)
+            console.log('testing')
         }
         getproductMainListData()
     } , [])
