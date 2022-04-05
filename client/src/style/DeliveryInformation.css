@@ -12,6 +12,14 @@
 .form-select:focus{
     box-shadow: none;
 }
+.delivery-product-image{
+    width: 100%;
+    height: 400px;
+}
+.delivery-product-image img{
+    width: 100%;
+    height: 100%;
+}
 
 @media(max-width: 424px){
     .delivery-product-image{
@@ -20,4 +28,11 @@
     .delivery-product-image img{
         height: 100%;
     }
+    .delivery-product-image{
+        width: 100%;
+        height: 300px;
+    }
 }
+
+
+

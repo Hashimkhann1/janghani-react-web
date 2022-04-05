@@ -1,6 +1,64 @@
-import mongoos from 'mongoose'
+import proModel from "../../Schema/schema.js"
 
-const conn = mongoos.connection;
+export const getDbProductData = async (req , res) => {
+    try {
+        const data = await proModel.find({})
+        res.status(200).json(data)
+    } catch (error) {
+       res.status(500).json('error while getting data from controller' , error) 
+    }
+}
+
+export const getDbProductDetail = async (req , res) => {
+    try {
+        let detailData = await proModel.findById(req.params.id)
+        res.status(200).json(detailData)
+    } catch (error) {
+        res.status(500).json('error while getting ProductDetail from controller' , error)
+    }
+}
+
+
+export const grtProductImage = async (req , res) => {
+    try {
+        let data = await proModel.findById(req.params.id)
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json('error while calling grtProductImage from controller' , error)
+    }
+}
+
+
+
+
+
+
+
+// import mongoos from 'mongoose'
+
+// const conn = mongoos.connection;
+
+//     export const getDbProductData = async (req , res) => {
+//         try{
+//             let data;
+//             conn.once('open' , () => {data = conn.db.collection('product1testing').find()
+            
+        
+//         })
+//         res.status(200).json(data)
+        
+        
+//     } catch (error) {
+//         res.status(500).json('eorro while calling getDbProductData from controller' , error)
+//     }
+
+// }
+
+
+// ////
+
+
+
 // let productData;
 // conn.once('open' , () => {
 //     productData = conn.db
@@ -15,17 +73,3 @@ const conn = mongoos.connection;
 //         res.status(500).json('error while calling getProductMainList in Controller : ' , error)
 //     }
 // }
-
-export const getDbProductData = async (req , res) => {
-    try {
-        let productData;
-        await conn.once('connected' , async () => {
-            productData = await conn.db.collection('product1testings').find({})
-        })
-        res.status(200).json(productData)
-            console.log(req.body)
-        
-    } catch (error) {
-        res.status(500).json('eorro while calling getDbProductData from controller' , error)
-    }
-}

@@ -1,29 +1,43 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 // images
 
-import keybord from '../../../images/productlistImages/keybord.jpg'
+import { getProductDetail } from '../../../services/Api'
 
 // style sheet
 
 import '../../../style/ProductDetail.css'
 
 const ProductDetail = () => {
+
+
+    const param = useParams()
+
+    const [ProdtuctDetail , setProdtuctDetail] = useState({})
+
+    useEffect(() => {
+        let getProductData = async () => {
+            let detailData = await getProductDetail(param.id)
+            setProdtuctDetail(detailData)
+        }
+        getProductData()
+    } , [])
+
   return (
     <div className='container-lg'>
         <div className='row pt-5'>
             <div className='col-sm-12 col-md-12 col-lg-5'>
                 <div className='detail-main-image'>
-                    <img src={keybord} alt='Product Detail' className='img-fluid'/>
+                    <img src={ProdtuctDetail && ProdtuctDetail.ProductImage} alt='Product Detail' className='img-fluid border rounded'/>
                 </div>
             </div>
             <div className='col-sm-12 col-md-12 col-lg-6 pri-peo'>
-                <h3 className='m-0'>Product Name</h3>
-                <p className='fw-bold text-secondary price'><span className='text-danger'>Price</span> Rs 1200 </p>
-                <h4>What is Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore in English dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh dolor sit amet consectetuer adipiscing elit sed diam nonummy nibh?</h4>
+                <h3 className='m-0'>{ProdtuctDetail.productName}</h3>
+                <p className='fw-bold text-secondary price'><span className='text-danger'>Price</span> Rs {ProdtuctDetail.price} </p>
+                <h4>{ProdtuctDetail.productdescripition}</h4>
                 <div className='btns mt-5 mb-5'>
                     <button className='p-2 ps-4 pe-4 fw-bold rounded-pill '>Add to cart</button>
-                    <Link to={'/deli-detail'}>
+                    <Link to={`/deli-detail/${param.id}`}>
                         <button className='ms-2 p-2 ps-4 pe-4 fw-bold rounded-pill'>Buy now</button>
                     </Link>
                 </div>

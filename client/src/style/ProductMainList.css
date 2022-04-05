@@ -1,8 +1,23 @@
 .product-list-container{
     display: flex;
 }
+.productImage{
+    height: 320px;
+}
+.productImage img{
+    height: 100%;
+}
 @media(max-width:991px){
     .product-list-container{
         display: block;
+    }
+    .productImage{
+        height: 400px;
+    }
+}
+
+@media(max-width:416px){
+    .productImage{
+        height: 320px;
     }
 }

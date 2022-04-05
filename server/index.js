@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({limit : '30mb' , extended : true}))
 
 app.use(router)
 
-const PORT = 3001;
+const PORT = 5000;
 
 app.listen(PORT , () => console.log('server is running on PORT : ' , PORT))
 
