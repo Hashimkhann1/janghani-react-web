@@ -12,7 +12,6 @@ export const productMainList = async () => {
 }
 
 export const getProductDetail = async (id) => {
-    console.log(id)
     try {
         let productMainDetail = await axios.get(`${url}/productDetail/${id}`)
         return productMainDetail.data
@@ -30,3 +29,15 @@ export const getProductImage = async (id) => {
        console.log('error while calling getProductImage from api' , error) 
     }
 }
+
+
+export const getListData = async () => {
+    try {
+        let data = await axios.get(`${url}/list/Data`)
+        console.log(data)
+        return data.data
+        
+    } catch (error) {
+        console.log('error while geting data from ')
+    }
+} 

@@ -25,8 +25,8 @@ const ProductDetail = () => {
 
   return (
     <div className='container-lg'>
-        <div className='row pt-5'>
-            <div className='col-sm-12 col-md-12 col-lg-5'>
+        <div className='row pt-5 mt-5'>
+            <div className='col-sm-12 col-md-12 col-lg-4'>
                 <div className='detail-main-image'>
                     <img src={ProdtuctDetail && ProdtuctDetail.ProductImage} alt='Product Detail' className='img-fluid border rounded'/>
                 </div>

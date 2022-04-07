@@ -1,8 +1,8 @@
 .product-list-container{
-    display: flex;
+    /* display: flex; */
 }
 .productImage{
-    height: 320px;
+    height: 240px;
 }
 .productImage img{
     height: 100%;
@@ -12,7 +12,7 @@
         display: block;
     }
     .productImage{
-        height: 400px;
+        height: 300px;
     }
 }
 

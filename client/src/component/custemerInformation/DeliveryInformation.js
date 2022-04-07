@@ -14,16 +14,16 @@ const DeliveryInformation = () => {
 
   
 
-  const inputsValues = {
-    userName : '',
-    userEmail : '',
-    userAddress : '',
-    brachOption : '',
-    postalCode : '',
-    ProductId : ''
-  }
+  // const inputsValues = {
+  //   userName : '',
+  //   userEmail : '',
+  //   userAddress : '',
+  //   brachOption : '',
+  //   postalCode : '',
+  //   ProductId : ''
+  // }
 
-  const [InputData , setInputData] = useState(inputsValues);
+  // const [InputData , setInputData] = useState(inputsValues);
   const [productData , setproductData] = useState({})
 
   useEffect(() => {
@@ -34,9 +34,10 @@ const DeliveryInformation = () => {
     getProductdata()
   } , [])
 
-  const inputValues = (e) => {
-    setInputData({...InputData , [e.target.name]:e.target.value})
-  }
+  // const inputValues = (e) => {
+  //   setInputData({...InputData , [e.target.name]:e.target.value})
+  // }
+  // onChange={inputValues}
 
   let param = useParams()
   const form = useRef();
@@ -69,12 +70,13 @@ const DeliveryInformation = () => {
       <div className='row justify-content-center pt-4 pb-4'>
         <div className='col-lg-6 shadow-lg p-4 input-container'>
         <form ref={form} onSubmit={testing}>
-          <input type='text' onChange={inputValues} className='form-control mt-3 border border-danger' name='userName' placeholder='Full Name'/>
-          <input type='email' onChange={inputValues} className='form-control mt-3 border-danger' name='userEmail' placeholder='Email'/>
-          <input type='text' onChange={inputValues} className='form-control mt-3 border-danger' name='userAddress' placeholder='Address'/>
+          <input type='text' className='form-control mt-3 border border-danger' name='userName' placeholder='Full Name'/>
+          <input type='email' className='form-control mt-3 border-danger' name='userEmail' placeholder='Email'/>
+          <input type='text' className='form-control mt-3 border-danger' name='userAddress' placeholder='Address'/>
+          <input type='text' className='form-control mt-3 border-danger' name='usercontact' placeholder='Contact'/>
           
           <div class="input-group col-4 mt-3">
-            <select class="form-select border border-danger" onChange={inputValues} name='branchOption' id="inputGroupSelect04">
+            <select class="form-select border border-danger" name='branchOption' id="inputGroupSelect04">
               <option selected>Choose...</option>
               <option value="1">Janghani branch 1 majeed abad</option>
               <option value="2">Janghani branch 2 qalat naseer</option>
@@ -82,11 +84,11 @@ const DeliveryInformation = () => {
             </select>
           </div>
           <div className='col-8 col-md-4 col-lg-4'>
-          <input type='text' onChange={inputValues} name='postalCode' className='form-control mt-3 border-danger' placeholder='Postal code'/>
-          <input type='text' onChange={inputValues} name='productId' value={productData._id} className='d-none form-control mt-3 border-danger' placeholder='Postal code'/>
+          <input type='text' name='postalCode' className='form-control mt-3 border-danger' placeholder='Postal code'/>
+          <input type='text' name='productId' value={productData._id} className='d-none form-control mt-3 border-danger' placeholder='Postal code'/>
           </div>
           <div className='text-center mt-4'>
-            <button type='submit'  className='p-2 text-center rounded-pill bg-danger text-white fw-bold border border-danger delivery-btn'>testing</button>
+            <button type='submit'  className='ps-3 pe-3 p-2 text-center rounded-pill bg-danger text-white fw-bold border border-danger delivery-btn'>testing</button>
             {/* <button onClick={getUserValues} className='p-2 text-center rounded-pill bg-danger text-white fw-bold border border-danger delivery-btn'>submiit</button> */}
           </div>
           </form>
