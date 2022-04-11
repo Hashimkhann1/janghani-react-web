@@ -2,11 +2,12 @@ import ListModel from "../../Schema/ListSchema.js"
 import proModel from "../../Schema/schema.js"
 
 export const getDbProductData = async (req , res) => {
-    // let listname = req.query.listname
-    // console.log(listname)
+    // const productcaterory = req.query.ListName
+    // console.log(productcaterory)
     try {
         const data = await proModel.find({})
         res.status(200).json(data)
+        console.log(req.query.productcaterory)
     } catch (error) {
        res.status(500).json('error while getting data from controller' , error) 
     }

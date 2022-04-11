@@ -39,9 +39,9 @@ const ProductMainList = () => {
                              <div className=' productImage'>
                                 <img src={data.ProductImage} alt='mainlistkeybord' className='img-fluid w-100 rounded border' />
                             </div>
-                        <h2 className='m-0 mt-2 text-center'>{data.productName}</h2>
-                        <p className='fw-bold m-0 text-center'><span className='text-warning fs-5'>Rs</span> {data.price}</p>
-                        {/* <h5>{addDots(data.productdescripition , 50)}</h5> */}
+                        <h2 className='m-0 mt-2'>{data.productName}</h2>
+                        <p className='fw-bold m-0'><span className='text-warning fs-5'>Rs</span> {data.price}</p>
+                        <h5>{addDots(data.productdescripition , 89)}</h5>
                 {/* </div> */}
                         </Link>
                     </div>

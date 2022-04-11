@@ -14,16 +14,17 @@ const DeliveryInformation = () => {
 
   
 
-  // const inputsValues = {
-  //   userName : '',
-  //   userEmail : '',
-  //   userAddress : '',
-  //   brachOption : '',
-  //   postalCode : '',
-  //   ProductId : ''
-  // }
+  const inputsValues = {
+    userName : '',
+    userEmail : '',
+    userAddress : '',
+    userContact : '',
+    brachOption : '',
+    postalCode : '',
+    ProductId : ''
+  }
 
-  // const [InputData , setInputData] = useState(inputsValues);
+  const [InputData , setInputData] = useState(inputsValues);
   const [productData , setproductData] = useState({})
 
   useEffect(() => {
@@ -34,10 +35,10 @@ const DeliveryInformation = () => {
     getProductdata()
   } , [])
 
-  // const inputValues = (e) => {
-  //   setInputData({...InputData , [e.target.name]:e.target.value})
-  // }
-  // onChange={inputValues}
+  const inputValues = (e) => {
+    setInputData({...InputData , [e.target.name]:e.target.value})
+    console.log(InputData)
+  }
 
   let param = useParams()
   const form = useRef();
@@ -47,13 +48,30 @@ const DeliveryInformation = () => {
 
   const testing = (e) => {
     e.preventDefault()
-    emailjs.sendForm('service_s9qkkyj', 'template_wnpj4if', e.target, 'nFTbC7p-CpM7H1uNO')
-    .then((result) => {
+    if(!InputData.userName){
+      alert('Enter your Name')
+    }
+    else if(!InputData.userEmail){
+      alert('Enter your Email')
+    }
+    else if(!InputData.userAddress){
+      alert('Enter your Address')
+    }
+    else if(!InputData.userContact){
+      alert('Enter your Contact')
+    }
+    else if(!InputData.postalCode){
+      alert('Enter Postal Code')
+    }
+    else{
+      emailjs.sendForm('service_s9qkkyj', 'template_wnpj4if', e.target, 'nFTbC7p-CpM7H1uNO')
+      .then((result) => {
         console.log(result.text);
-    }, (error) => {
+      }, (error) => {
         console.log(error.text);
-    });
-    navigation('/')
+      });
+      navigation('/')
+    }
     
   }
 
@@ -70,10 +88,10 @@ const DeliveryInformation = () => {
       <div className='row justify-content-center pt-4 pb-4'>
         <div className='col-lg-6 shadow-lg p-4 input-container'>
         <form ref={form} onSubmit={testing}>
-          <input type='text' className='form-control mt-3 border border-danger' name='userName' placeholder='Full Name'/>
-          <input type='email' className='form-control mt-3 border-danger' name='userEmail' placeholder='Email'/>
-          <input type='text' className='form-control mt-3 border-danger' name='userAddress' placeholder='Address'/>
-          <input type='text' className='form-control mt-3 border-danger' name='usercontact' placeholder='Contact'/>
+          <input type='text' className='form-control mt-3 border border-danger' onChange={inputValues} name='userName' placeholder='Full Name'/>
+          <input type='email' className='form-control mt-3 border-danger' onChange={inputValues} name='userEmail' placeholder='Email'/>
+          <input type='text' className='form-control mt-3 border-danger' onChange={inputValues} name='userAddress' placeholder='Address'/>
+          <input type='text' className='form-control mt-3 border-danger' onChange={inputValues} name='userContact' placeholder='Contact'/>
           
           <div class="input-group col-4 mt-3">
             <select class="form-select border border-danger" name='branchOption' id="inputGroupSelect04">
@@ -84,7 +102,7 @@ const DeliveryInformation = () => {
             </select>
           </div>
           <div className='col-8 col-md-4 col-lg-4'>
-          <input type='text' name='postalCode' className='form-control mt-3 border-danger' placeholder='Postal code'/>
+          <input type='text' name='postalCode' className='form-control mt-3 border-danger' onChange={inputValues} placeholder='Postal code'/>
           <input type='text' name='productId' value={productData._id} className='d-none form-control mt-3 border-danger' placeholder='Postal code'/>
           </div>
           <div className='text-center mt-4'>
