@@ -4,9 +4,11 @@ import axios from 'axios'
 
 const url = 'http://localhost:5000'
 
-export const productMainList = async () => {
+
+export const productMainList = async (query) => {
     try {
-        const responce = await axios.get(`${url}/product/main/list`)
+        // const responce = await axios.get(`${url}/product/main/list`)
+        const responce = await axios.get(`${url}/product/main/list${query}`)
         return responce.data
     } catch (error) {
         console.log('error while calling ProductMainList from services : ' , error)

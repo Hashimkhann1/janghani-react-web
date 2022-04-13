@@ -1,13 +1,8 @@
 import React, { useState , useEffect } from 'react'
 import '../../../style/ProductMainList.css'
-import {Link} from 'react-router-dom'
-
-// images
+import {Link , useLocation } from 'react-router-dom'
 
 import { productMainList } from '../../../services/Api'
-// import laptop from '../../../images/productlistImages/laptop.jpg'
-
-
 
 const addDots = (str , limit) => {
     return str.length > limit ? str.substring(0 , limit) + '...' : str;
@@ -17,16 +12,16 @@ const ProductMainList = () => {
 
     const [ProductListData , setProductListData] = useState([])
 
+    const {search} = useLocation()
 
     useEffect(() => {
         const getproductMainListData = async () => {
-            let data = await productMainList()
+            let data = await productMainList(search)
             setProductListData(data)
         }
         getproductMainListData()
-    } , [])
+    } , [search])
 
-    console.log(ProductListData)
 
 
   return (

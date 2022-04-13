@@ -24,7 +24,7 @@ const ProductList = () => {
         <div className='row mt-3'>
         {ListData && ListData.map((data) => (
             <div className='col-sm-12 col-md-4 col-lg-3 mt-3'>
-            <Link to={`/main-list?productcaterory=${data.ListName}`} className='text-dark text-decoration-none'>
+            <Link to={`/product/main/list?productcategory=${data.ListName}`} className='text-dark text-decoration-none'>
             <div className='P-list-main p-1'>
                 <h3 className='p-2'>{data.ListName}</h3>
                 <div className='product-list-image'>
